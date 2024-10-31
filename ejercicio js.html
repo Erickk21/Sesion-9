@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            color: #007bff;
+            margin-top: 0;
+        }
+
+        .input-group {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .input-group label {
+            flex-basis: 150px;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            flex-grow: 1;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .input-group button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .input-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Actividad de Variables y Operaciones</h1>
+        </div>
+
+        <div class="section">
+            <h3>Parte 1: Declaración de Variables y Tipos de Datos</h3>
+            <div class="input-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" value="Juan" disabled>
+            </div>
+            <div class="input-group">
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" value="25" disabled>
+            </div>
+            <div class="input-group">
+                <label for="estudiante">Estudiante:</label>
+                <input type="text" id="estudiante" value="true" disabled>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Parte 2: Operaciones Matemáticas y Comparación</h3>
+            <div class="input-group">
+                <label for="a">Valor de a:</label>
+                <input type="number" id="a" value="10">
+            </div>
+            <div class="input-group">
+                <label for="b">Valor de b:</label>
+                <input type="number" id="b" value="5">
+            </div>
+            <div class="input-group">
+                <button onclick="calcularOperaciones()">Calcular</button>
+            </div>
+            <div class="input-group">
+                <label>Resultados:</label>
+                <div id="resultados"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Parte 3: Uso de Operadores Lógicos y Concatenación de Strings</h3>
+            <div class="input-group">
+                <label for="puede-conducir">¿Puede conducir?</label>
+                <input type="text" id="puede-conducir" disabled>
+            </div>
+            <div class="input-group">
+                <label for="mensaje-bienvenida">Mensaje de Bienvenida:</label>
+                <input type="text" id="mensaje-bienvenida" disabled>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let ac = 10;
+        let nombre = "JEUO";
+        let edad = 50;
+        let estudiante = true;
+
+        nombre = "JEUO";
+        edad = 30;
+        estudiante = false;
+
+        let a = 10;
+        let b = 5;
+
+        function calcularOperaciones() {
+            a = parseInt(document.getElementById("a").value);
+            b = parseInt(document.getElementById("b").value);
+
+            let resultados = `Suma: ${a + b}<br>
+                            Resta: ${a - b}<br>
+                            Multiplicación: ${a * b}<br>
+                            División: ${a / b}<br>
+                            a == b: ${a == b}<br>
+                            a != b: ${a != b}<br>
+                            a > b: ${a > b}<br>
+                            a < b: ${a < b}<br>
+                            a <= b: ${a <= b}`;
+
+            document.getElementById("resultados").innerHTML = resultados;
+        }
+
+        let esMayorDeEdad = edad >= 18;
+        let tieneLicencia = true;
+        let puedeConducir = esMayorDeEdad && tieneLicencia;
+
+        document.getElementById("puede-conducir").value = puedeConducir;
+
+        let mensajeBienvenida = `¡Bienvenido, ${nombre}! ${esMayorDeEdad ? 'Eres mayor de edad.' : 'Eres menor de edad.'}`;
+        document.getElementById("mensaje-bienvenida").value = mensajeBienvenida;
+    </script>
+</body>
+</html>
